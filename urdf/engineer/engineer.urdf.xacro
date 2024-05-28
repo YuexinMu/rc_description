@@ -26,22 +26,14 @@
                       rpy="0.0 0.0 0.0"/>
     </xacro:if>
 
-    <!--    <xacro:if value="$(arg use_sim)">-->
-    <!--        <gazebo>-->
-    <!--            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">-->
-    <!--                <robotNamespace>/</robotNamespace>-->
-    <!--            </plugin>-->
-    <!--        </gazebo>-->
-    <!--    </xacro:if>-->
-
-    <!--    <xacro:if value="$(arg use_sim)">-->
-    <!--        <gazebo>-->
-    <!--            <plugin name="rm_ros_control" filename="librm_robot_hw_sim.so">-->
-    <!--                <robotNamespace>/</robotNamespace>-->
-    <!--                <robotSimType>rm_gazebo/RmRobotHWSim</robotSimType>-->
-    <!--            </plugin>-->
-    <!--        </gazebo>-->
-    <!--    </xacro:if>-->
+    <xacro:if value="$(arg use_sim)">
+        <gazebo>
+            <plugin name="rc_ros_control" filename="librc_robot_hw_sim.so">
+                <robotNamespace>/</robotNamespace>
+                <robotSimType>rc_gazebo/RcRobotHWSim</robotSimType>
+            </plugin>
+        </gazebo>
+    </xacro:if>
 
     <xacro:if value="$(arg load_arm)">
         <xacro:include filename="$(find rc_description)/urdf/engineer/arm.urdf.xacro"/>
